@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="store">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body ng-controller="StoreCtrl as store">
+	<header class="text-center">
+		<h1 >Flatlander Crafted Gems</h1>
+		<h3>- an Angular store -</h3>
+	</header>
+	<div class="container">
+	<ul class="list-group" >
+		<li class="list-group-item" ng-repeat="product in store.products" >
+				<h3 >{{product.name}}
+					<em  class="blue pull-right">{{product.price | currency}}</em>
+				</h3>
+				<button class="pull-right">Add to Cart</button>
+				<section ng-show="product.images.length">
+					<div class="gallery row" ng-controller="GalleryCtrl as gallery">
+						<div class="img-wrap">
+							<img ng-src="{{product.images[gallery.current]}}" />
+						</div>
+						 <ul class="list-inline thumbs">
+							<li ng-repeat="image in product.images" class="small-image pull-left thumbnail">
+								<img ng-click="gallery.setCurrent($index)" ng-src="{{image}}" />
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tab" ng-controller="TabCtrl as tab">
+					<ul class="nav nav-pills row">
+						<li ng-class="{active: tab.isSelected(1)}">
+							<a href ng-click="tab.selectedTab(1)"> Description</a>
+						</li>						
+						<li ng-class="{active: tab.isSelected(2)}">
+							<a href ng-click="tab.selectedTab(2)"> Specs</a>
+						</li>
+						<li ng-class="{active: tab.isSelected(3)}">
+							<a href ng-click="tab.selectedTab(3)"> Reviews</a>
+						</li>
+					</ul>
+					<div ng-show="tab.isSelected(1)">
+						<h4>Description</h4>
+						<blockquote>{{product.description}}</blockquote>
+					</div>
+					<div ng-show="tab.isSelected(2)">
+						<h4>Specs</h4>
+						<blockquote>Shine:{{product.shine}}</blockquote>
+					</div>
+					<div ng-show="tab.isSelected(3)">
+						<h4>Reviews</h4>
+						<blockquote ng-repeat="review in product.reviews">
+							<h4>{{review.stars}}Star:</h4>
+							<h3>{{review.body}}</h3>
+							<div>{{review.author}} {{review.createdOn | date}} </div>
+							</blockquote>
+					</div>
+				</section>	
+		</li>
+	</ul>
+	</div>
+	
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="module.js"></script>
+	<script src="controller.js"></script>
+	<script src="service.js"></script>
+	<script src="directives.js"></script>
+</body>
+</html>
