@@ -1,0 +1,24 @@
+.blue{
+	color: blue;
+}
+
+ul .small-image img{
+	max-width: 5vw;
+}
+
+.gallery .img-wrap img{
+	max-width: 15vw;
+}
+
+.ng-invalid.ng-dirty{
+	border-color: red;
+}
+
+.ng-valid.ng-dirty{
+	border-color: green;
+}
+
+.preview-review{
+	color: purple;
+	border-color: yellow;
+}
