@@ -1,0 +1,53 @@
+extends layout
+
+block content
+header.text-center
+  h1 Flatlander Crafted Gems
+  h3 - an Angular store -
+.container
+  ul.list-group
+    li.list-group-item(ng-repeat='product in store.products')
+      h3
+        | {{product.name}}
+        em.blue.pull-right {{product.price | currency}}
+      button.pull-right Add to Cart
+      section(ng-show='product.images.length')
+        .gallery.row(ng-controller='GalleryCtrl as gallery')
+          .img-wrap
+            img(ng-src='{{product.images[gallery.current]}}')
+          ul.list-inline.thumbs
+            li.small-image.pull-left.thumbnail(ng-repeat='image in product.images')
+              img(ng-click='gallery.setCurrent($index)', ng-src='{{image}}')
+      section.tab(ng-controller='TabCtrl as tab')
+        ul.nav.nav-pills.row
+          li(ng-class='{active: tab.isSelected(1)}')
+            a(href='', ng-click='tab.selectedTab(1)')  Description
+          li(ng-class='{active: tab.isSelected(2)}')
+            a(href='', ng-click='tab.selectedTab(2)')  Specs
+          li(ng-class='{active: tab.isSelected(3)}')
+            a(href='', ng-click='tab.selectedTab(3)')  Reviews
+        div(ng-show='tab.isSelected(1)')
+          product-description
+          div(ng-show='tab.isSelected(2)')
+            product-specs
+          div(ng-show='tab.isSelected(3)')
+            product-reviews
+            // live preview
+            form(name='reviewForm', ng-controller='ReviewCtrl as reviewCtrl', ng-submit='reviewCtrl.addReview(product)', novalidate='')
+              blockquote.preview-review(ng-show='reviewCtrl.review.stars')
+                h3 Preview Before You Submit Your Review:
+                strong  {{reviewCtrl.review.stars}} Stars
+                h4 {{reviewCtrl.review.body}}
+                cite.clearfix -{{reviewCtrl.review.author}}
+              // review form
+              h4 Submit a Review
+              fieldset.form-group
+                select.form-control(ng-model='reviewCtrl.review.stars', ng-options='stars for stars in [5,4,3,2,1]', title='Stars', required='')
+                  option(value='') Rate the Product
+              fieldset.form-group
+                textarea.form-control(ng-model='reviewCtrl.review.body', title='Review', placeholder='write a review of this product', id='', cols='30', rows='10')
+              fieldset.form-group
+                input.form-control(ng-model='reviewCtrl.review.author', type='email', placeholder='example@example.com', title='Email', required='')
+              fieldset.form-group
+                p(ng-show='reviewForm.$invalid') Cannot submit. Review Form has not been completed properly
+                input.btn.btn-primary.pull-right(ng-disabled='reviewForm.$invalid', type='submit', value='Submit Review')

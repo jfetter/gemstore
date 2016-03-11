@@ -1,0 +1,24 @@
+<form name="reviewForm" ng-submit="reviewCtrl.addReview(product)" novalidate="">
+  <blockquote ng-show="reviewCtrl.review.stars" class="preview-review">
+    <h3>Preview Before You Submit Your Review:</h3><strong> {{reviewCtrl.review.stars}} Stars</strong>
+    <h4>{{reviewCtrl.review.body}}</h4>
+    <cite class="clearfix">-{{reviewCtrl.review.author}}</cite>
+  </blockquote>
+  <!-- review form-->
+  <h4>Submit a Review</h4>
+  <fieldset class="form-group">
+    <select ng-model="reviewCtrl.review.stars" ng-options="stars for stars in [5,4,3,2,1]" title="Stars" required="" class="form-control">
+      <option value="">Rate the Product</option>
+    </select>
+  </fieldset>
+  <fieldset class="form-group">
+    <textarea ng-model="reviewCtrl.review.body" title="Review" placeholder="write a review of this product" id="" cols="30" rows="10" class="form-control"></textarea>
+  </fieldset>
+  <fieldset class="form-group">
+    <input ng-model="reviewCtrl.review.author" type="email" placeholder="example@example.com" title="Email" required="" class="form-control"/>
+  </fieldset>
+  <fieldset class="form-group">
+    <p ng-show="reviewForm.$invalid">Cannot submit. Review Form has not been completed properly</p>
+    <input ng-disabled="reviewForm.$invalid" type="submit" value="Submit Review" class="btn btn-primary pull-right"/>
+  </fieldset>
+</form>
