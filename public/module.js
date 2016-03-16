@@ -1,9 +1,11 @@
 "use strict";
 
 //(function(){
-	var app = angular.module('store', []);
+	var app = angular.module('stoto', []);
 
-
+// app.run(function($templateCache){
+// 	console.log($templateCache.get('product-specs'))
+// })
 
 
 	var gems = [

@@ -1,0 +1,7 @@
+section(ng-show="story.images.length")
+	.gallery.row
+		.img-wrap
+			img(ng-src="{{story.images[gallery.current]}}")/
+		ul.list-inline.thumbs
+			li.small-image.pull-left.thumbnail(ng-repeat="image in story.images")
+				img(ng-click="gallery.setCurrent($index" ng-src="{{image}}")

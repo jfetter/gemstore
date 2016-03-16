@@ -1,56 +1,12 @@
 	"use strict";
 
-var app = angular.module('store');
+var app = angular.module('stoto');
 
-	app.directive('productDescription', function(){
+	
+	app.directive('imageGallery', function($templateCache){
 		return{
 			restrict: 'EA',
-			templateUrl: 'directives/product-descript.html'
-		}
-	})
-
-	app.directive('productSpecs', function(){
-		return{
-			restrict: 'EA',
-			templateUrl: 'directives/product-specs.html'
-		}
-	})	
-
-	app.directive('productReviews', function(){
-		return{
-			restrict: 'EA',
-			templateUrl: 'directives/product-reviews.html'
-		}
-	})
-
-	app.directive('tabDisplay', function(){
-		return{
-			restrict: 'EA',
-			templateUrl: 'directives/tab-display.html'
-		}
-	})	
-
-	app.directive('reviewForm', function(){
-		return{
-			restrict: 'EA',
-			templateUrl: 'directives/review-form.html',
-			controller: function(){
-				this.review ={};
-				this.addReview = function(product){
-					console.log($scope.reviewCtrl.review.stars, "SCOPE")
-					this.review.createdOn = Date.now();
-					product.reviews.push(this.review);
-					this.review = {};
-				}
-			},
-			controllerAs: "reviewCtrl"
-		}
-	})	
-
-	app.directive('imageGallery', function(){
-		return{
-			restrict: 'EA',
-			templateUrl: 'directives/image-gallery.html',
+			template: $templateCache.get('story-gallery'),
 			controller: function(){
 				this.current = 0; 
 				this.setCurrent = function(image){
@@ -61,10 +17,56 @@ var app = angular.module('store');
 		};
 	})
 
-	app.directive('infoPanels', function(){
+	app.directive('storyDescript', function($templateCache){
 		return{
 			restrict: 'EA',
-			templateUrl: 'directives/info-panels.html',
+			template: $templateCache.get('story-descript')
+		}
+	})
+
+	app.directive('storySpecs', function($templateCache){
+		return{
+			restrict: 'EA',
+			template: $templateCache.get('story-specs')
+		}
+	})	
+
+	app.directive('picSummary', function(){
+		return{
+			restrict: 'EA',
+			template: $templateCache.get('pic-summary')
+		}
+	})
+
+	app.directive('tabDisplay', function($templateCache){
+		return{
+			restrict: 'EA',
+			template: $templateCache.get('tab-display')
+		}
+	})	
+
+	app.directive('picForm', function($templateCache){
+		return{
+			restrict: 'EA',
+			template: $templateCache.get('pic-form'),
+			controller: function(){
+				this.pic ={};
+				this.addPic = function(story){
+					console.log($scope.newPic.pic.place, "SCOPE")
+					this.pic.date = this.pic.date || Date.now();
+					story.pics.push(this.pic);
+					PicService.addPic(this.pic);
+					this.pic = {};
+				}
+			},
+			controllerAs: "newPic"
+		}
+	})	
+
+	app.directive('infoPanels', function($templateCache){
+		return{
+			restrict: 'EA',
+			template: $templateCache.get('info-panels'),
 			controller: function(){
 				// initialize value of tab so that some info shows on page load;
 				this.tab = 1; 

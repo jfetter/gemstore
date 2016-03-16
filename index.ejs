@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="store">
+<html lang="en" ng-app="stoto">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@
       <ul class="list-group">
         <li ng-repeat="product in store.products" class="list-group-item">
           <h3>{{product.name}}<em class="blue pull-right">{{product.price | currency}}</em></h3>
-          <button class="pull-right">Add to Cart</button>
+          <button ng-click="store.sendmail" class="pull-right">Add to Cart</button>
           <image-gallery></image-gallery>
           <info-panels></info-panels>
         </li>

@@ -1,0 +1,19 @@
+form(name='reviewForm', ng-submit='reviewCtrl.addReview(product)', novalidate='')
+  blockquote.preview-review(ng-show='reviewCtrl.review.stars')
+    h3 Preview Before You Submit Your Review:
+    strong  {{reviewCtrl.review.stars}} Stars
+    h4 {{reviewCtrl.review.body}}
+    cite.clearfix -{{reviewCtrl.review.author}}
+  // review form
+  h4 Submit a Review
+  fieldset.form-group
+    select.form-control(ng-model='reviewCtrl.review.stars', ng-options='stars for stars in [5,4,3,2,1]', title='Stars', required='')
+      option(value='') Rate the Product
+  fieldset.form-group
+    textarea.form-control(ng-model='reviewCtrl.review.body', title='Review', placeholder='write a review of this product', id='', cols='30', rows='10')
+  fieldset.form-group
+    input.form-control(ng-model='reviewCtrl.review.author', type='email', placeholder='example@example.com', title='Email', required='')
+  fieldset.form-group
+    p(ng-show='reviewForm.$invalid') Cannot submit. Review Form has not been completed properly
+    input.btn.btn-primary.pull-right(ng-disabled='reviewForm.$invalid', type='submit', value='Submit Review')
+      

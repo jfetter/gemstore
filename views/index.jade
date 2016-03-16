@@ -1,0 +1,29 @@
+extends layout
+
+block content
+
+  body(ng-controller='StoryCtrl as story')
+    button(ng-click="sendemail") send email
+    //- script(type="text/ng-template", id="story-specs")
+    //-   include ./partials/story-specs.jade
+    //- script(type="text/ng-template", id="story-gallery")
+    //-   include ./partials/story-gallery.jade
+    //- script(type="text/ng-template", id="story-descript")
+    //-   include ./partials/story-descript.jade
+    //- script(type="text/ng-template", id="pic-summary")
+    //-   include ./partials/pic-summary.jade
+    //- script(type="text/ng-template", id="tab-display")
+    //-   include ./partials/tab-display.jade
+    //- script(type="text/ng-template", id="info-panels")
+    //-   include ./partials/info-panels.jade
+    //- header.text-center
+    //-   h1 Flatlander Crafted Gems
+    //-   h3 - an Angular store -
+    //- .container
+    //-   ul.list-group
+    //-     li.list-group-item(ng-repeat='product in story.products')
+    //-       h3 incrament {{story.incramentNo}}
+    //-         | {{product.name}}
+    //-         em.blue.pull-right {{product.price | currency}}
+          image-gallery
+          info-panels
