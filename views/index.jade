@@ -2,36 +2,36 @@ extends layout
 
 block content
     header.text-center
-      h1 Flatlander Crafted Gems
-      h3 - an Angular store -
+      h1 Recreated With Squirrels
+      h3 - events and stories gone nuts -
     .container
       ul.list-group
         li.list-group-item(ng-repeat='product in store.products')
           h3
-            | {{product.name}}
+            | {{product.album}}
             em.blue.pull-right {{product.price | currency}}
-          button.pull-right Add to Cart
-          section(ng-show='product.images.length')
+          section(ng-show='product.frames.length')
             .gallery.row(ng-controller='GalleryCtrl as gallery')
               .img-wrap
-                img(ng-src='{{product.images[gallery.current]}}')
+                img(ng-src='{{product.frames[gallery.current].img}}')
+                h2 {{product.frames[gallery.current].cap}}
               ul.list-inline.thumbs
-                li.small-image.pull-left.thumbnail(ng-repeat='image in product.images')
-                  img(ng-click='gallery.setCurrent($index)', ng-src='{{image}}')
+                li.small-image.pull-left.thumbnail(ng-repeat='frame in product.frames')
+                  img(ng-click='gallery.setCurrent($index)', ng-src='{{frame.img}}')
           section.tab(ng-controller='TabCtrl as tab')
             ul.nav.nav-pills.row
               li(ng-class='{active: tab.isSelected(1)}')
                 a(href='', ng-click='tab.selectedTab(1)')  Description
               li(ng-class='{active: tab.isSelected(2)}')
-                a(href='', ng-click='tab.selectedTab(2)')  Specs
+                a(href='', ng-click='tab.selectedTab(2)')  Genre
               li(ng-class='{active: tab.isSelected(3)}')
                 a(href='', ng-click='tab.selectedTab(3)')  Reviews
             div(ng-show='tab.isSelected(1)')
               h4 Description
               blockquote {{product.description}}
             div(ng-show='tab.isSelected(2)')
-              h4 Specs
-              blockquote Shine:{{product.shine}}
+              h4 Genre
+              blockquote {{product.genre}}
             div(ng-show='tab.isSelected(3)')
               h4 Reviews
               blockquote(ng-repeat='review in product.reviews')
@@ -39,7 +39,7 @@ block content
                 h3 {{review.body}}
                 cite.clearfix -{{review.author}} {{review.createdOn | date}} 
               // live preview
-              form(name='reviewForm', ng-controller='ReviewCtrl as reviewCtrl', ng-submit='reviewCtrl.addReview(product)', novalidate='')
+              form(album='reviewForm', ng-controller='ReviewCtrl as reviewCtrl', ng-submit='reviewCtrl.addReview(product)', novalidate='')
                 blockquote.preview-review(ng-show='reviewCtrl.review.stars')
                   h3 Preview Before You Submit Your Review:
                   strong  {{reviewCtrl.review.stars}} Stars

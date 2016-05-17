@@ -6,21 +6,50 @@
 
 
 
-	var gems = [
-	{ name: 'Bloodstone',
-	description: "origin unkown; very lusterous",
-	shine: 9, 
-	price: 22.90,
-	rarity: 6, 
-	color: '#EEE', 
-	faces: 12,
-	images: [
-	"images/gem-01.png",
-	"images/gem-03.png",
-	"images/gem-04.png"
+	var collection = [
+	{ album: 'Arthur and Jillian Vol. 1',
+	description: "two squirrels' tale of love.",
+	genre: "sexy awesomeness", 
+	frames: [
+	{
+		cap: "And Then He Saw Her",
+		img: "images/s1.png",
+	},
+	{
+		cap: "And Then He Saw Her",
+		img: "images/s2.png",
+	},
+	{
+		cap: "And Then He Saw Her",
+		img: "images/s3.png",
+	},
+	{
+		cap: "And Then He Saw Her",
+		img: "images/s4.png",
+	},
+		{
+		cap: "And Then He Saw Her",
+		img: "images/s5.png",
+	},
+	{
+		cap: "And Then He Saw Her",
+		img: "images/s6.png",
+	},
+	{
+		cap: "And Then He Saw Her",
+		img: "images/s7.png",
+	},
+	{
+		cap: "And Then He Saw Her",
+		img: "images/s8.png",
+	},
+	{
+		cap: "And Then He Saw Her",
+		img: "images/s9.png",
+	}
 	],reviews: [{
 		stars: 3, 
-		body:"I think this gem was just OK, could use more shine IMO",
+		body:"I think this gem was just OK, could use more genre IMO",
 		author: "jimmyDean@example.org",
 		createdOn: 1397490980837
 	},
@@ -30,17 +59,17 @@
 		author: "gemsRock@example.org",
 		createdOn: 1397490980837
 	}]},{
-	name: 'Azurite',
+	album: 'iron man',
 	description: "most coveted and sought after gem, pricey!",
-	shine: 70, 
+	genre: 70, 
 	price: 1100,
 	rarity: 2, 
 	color: '#000', 
 	faces: 6,
 	images: [
-	"images/gem-09.png",
-	"images/gem-05.png",
-	"images/gem-02.png"
+	"images/s1.png",
+	"images/s2.png",
+	"images/s3.png"
 	],reviews: [{
 		stars: 3, 
 		body:"Waaaay too expensive for its rarity value.",

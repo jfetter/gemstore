@@ -1,13 +1,13 @@
 "use strict";
 
-var app = angular.module('store');
+angular.module('store')
 
-	app.controller('StoreCtrl', function($scope){
+	.controller('StoreCtrl', function($scope){
 		$scope.test = "testerino";
-		this.products = gems;
-	});
+		this.products = collection;
+	})
 
-	app.controller('TabCtrl', function($scope){
+	.controller('TabCtrl', function($scope){
 		// initialize value of tab so that some info shows on page load;
 		this.tab = 1; 
 		// change value of tab to selected tab;
@@ -18,9 +18,9 @@ var app = angular.module('store');
 		this.isSelected = function(tab){
 			return this.tab === tab; 
 		}
-	});
+	})
 
-	app.controller('GalleryCtrl', function($scope){
+	.controller('GalleryCtrl', function($scope){
 		this.current = 0; 
 		this.setCurrent = function(image){
 			this.current = image || 0; 

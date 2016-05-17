@@ -1,10 +1,20 @@
 	"use strict";
 
-var app = angular.module('store');
+angular.module('store')
 
-	app.directive('productTitle', function(){
+	.directive('productTitle', [function(){
 		return{
 			restrict: 'EA',
-			templateUrl: 'product-title.html'
+			templateUrl: 'product-title.html',
+			scope:{
+
+		},
+		link: function($scope, elem, attr, ctrl){
+
+
+
+
+
 		}
-	})
+		}
+	}])
