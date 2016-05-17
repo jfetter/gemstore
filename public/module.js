@@ -15,77 +15,53 @@
 		cap: "And Then He Saw Her",
 		img: "images/s1.png",
 	},
-	{
-		cap: "And Then He Saw Her",
-		img: "images/s2.png",
-	},
-	{
-		cap: "And Then He Saw Her",
+		{
+		cap: "And He pulled Out A plasic Flower",
 		img: "images/s3.png",
 	},
 	{
-		cap: "And Then He Saw Her",
+		cap: "And As She Continued to Thank Him For the Plastic Rose, He Reached For Her",
+		img: "images/s2.png",
+	},
+	{
+		cap: "Sometimes She Had Too Much To Drank and Got Fiesty",
 		img: "images/s4.png",
 	},
 		{
-		cap: "And Then He Saw Her",
-		img: "images/s5.png",
-	},
-	{
-		cap: "And Then He Saw Her",
+		cap: "But When they were out together they were always happy and sweet to one another",
 		img: "images/s6.png",
 	},
-	{
-		cap: "And Then He Saw Her",
-		img: "images/s7.png",
+		{
+		cap: 'But When All The Other Squirrels Saw Them... they were like "gimmie some peanutbutter because I am Jelly!" ',
+		img: "images/s5.png",
 	},
-	{
-		cap: "And Then He Saw Her",
+	],reviews: [{
+		stars: 5, 
+		body:"This Story was hotter than an arizona sunset",
+		author: "madumph@notreal.org",
+		createdOn: 1397490980837
+	}]},{
+	album: 'Bobs Burgers',
+	description: "makes you laugh so hard milk comes out of your nose... even if you weren't drinking milk!",
+	genre: "hilarity", 
+	frames: [
+		{
+		cap: 'Three Crazy yungins lived in an east coast seaside nest!" ',
 		img: "images/s8.png",
 	},
 	{
-		cap: "And Then He Saw Her",
+		cap: "the youngest was louise",
+		img: "images/s7.png",
+	},{
+		cap: "And the middle one was Jean",
 		img: "images/s9.png",
-	}
-	],reviews: [{
-		stars: 3, 
-		body:"I think this gem was just OK, could use more genre IMO",
-		author: "jimmyDean@example.org",
-		createdOn: 1397490980837
 	},
-	{
-		stars: 4, 
-		body:"12 faces are better than two!",
-		author: "gemsRock@example.org",
-		createdOn: 1397490980837
-	}]},{
-	album: 'iron man',
-	description: "most coveted and sought after gem, pricey!",
-	genre: 70, 
-	price: 1100,
-	rarity: 2, 
-	color: '#000', 
-	faces: 6,
-	images: [
-	"images/s1.png",
-	"images/s2.png",
-	"images/s3.png"
 	],reviews: [{
-		stars: 3, 
-		body:"Waaaay too expensive for its rarity value.",
+		stars: 5, 
+		body:"naaaailed it!",
 		author: "turtleguyy@example.org",
 		createdOn: 1397490980837
-	},
-	{stars: 1, 
-		body:"lame",
-		author: "LouisW407@example.org",
-		createdOn: 1397490980837
-	},
-	{stars: 1, 
-		body:"save your money",
-		author: "bob@example.org",
-		createdOn: 1397490980837
-		}]
+	}]
 	}];
 //})
 //();
